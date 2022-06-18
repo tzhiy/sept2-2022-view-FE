@@ -1,26 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="box">
+    <map-view />
+    <bag-status />
+    <console-table />
+    <button-area />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BagStatus from "./components/BagStatus.vue";
+import ConsoleTable from "./components/ConsoleTable.vue";
+import ButtonArea from "./components/ButtonArea.vue";
+import MapView from "./components/MapView.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    ConsoleTable,
+    BagStatus,
+    ButtonArea,
+    MapView,
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.box {
+  display: grid;
+  grid-template-rows: 5fr 3fr;
+  grid-template-columns: 2fr 1fr;
+  width: 100vw;
+  height: 100vh;
+}
+
+.tem {
+  background-color: skyblue;
 }
 </style>
