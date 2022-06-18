@@ -7,20 +7,29 @@
 </template>
 
 <script>
-// left top
-const location = {
-  ground: [36, 29],
-  teachingBuilding: [36, 12],
-  library: [36, 46],
-  teleport: [46, 29],
-  canteen: [18, 42],
-  stadium: [18, 27],
-  dormitory: [8, 27],
-};
+import { defineComponent, watch } from "@vue/runtime-core";
 
-console.log(location);
-
-export default {};
+export default defineComponent({
+  props: ["currentRoom"],
+  setup(props) {
+    // left top
+    const location = {
+      ground: [36, 29],
+      teachingBuilding: [36, 12],
+      library: [36, 46],
+      teleport: [46, 29],
+      canteen: [18, 39],
+      stadium: [17, 27],
+      dormitory: [9, 28],
+    };
+    watch(props, () => {
+      // 房间发生变化时，移动人物
+      var player = document.querySelector(".player");
+      player.style.left = location[props.currentRoom][0] + "vw";
+      player.style.top = location[props.currentRoom][1] + "vh";
+    });
+  },
+});
 </script>
 
 
@@ -50,6 +59,7 @@ export default {};
   height: 5vw;
   left: 36vw;
   top: 29vh;
+  transition: left 1.5s ease-out, top 1.5s ease-out;
 }
 
 h2 {

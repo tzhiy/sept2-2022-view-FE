@@ -3,19 +3,39 @@
     <h2>Actions</h2>
     <div class="wrapper">
       <div class="direction">
-        <a-button class="north">north</a-button>
-        <a-button class="south">south</a-button>
-        <a-button class="east">east</a-button>
-        <a-button class="west">west</a-button>
+        <a-button class="north" @click="onButtonClick('go north')"
+          >north</a-button
+        >
+        <a-button class="south" @click="onButtonClick('go south')"
+          >south</a-button
+        >
+        <a-button class="east" @click="onButtonClick('go east')">east</a-button>
+        <a-button class="west" @click="onButtonClick('go west')">west</a-button>
       </div>
       <div class="opreation">
-        <a-button class="op">look</a-button>
-        <a-button class="op">item</a-button>
-        <a-button class="op">back</a-button>
+        <a-button class="op" @click="onButtonClick('look')">look</a-button>
+        <a-button class="op" @click="onButtonClick('item')">item</a-button>
+        <a-button class="op" @click="onButtonClick('back')">back</a-button>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import { defineComponent } from "@vue/runtime-core";
+
+export default defineComponent({
+  emits: ["command"],
+  setup(props, context) {
+    const onButtonClick = (command) => {
+      context.emit("command", command);
+    };
+    return {
+      onButtonClick,
+    };
+  },
+});
+</script>
 
 <style scoped>
 .wrapper {
@@ -46,15 +66,15 @@
 }
 
 .east {
-  grid-column-start: 1;
-  grid-column-end: 2;
+  grid-column-start: 3;
+  grid-column-end: 4;
   grid-row-start: 2;
   grid-row-end: 3;
 }
 
 .west {
-  grid-column-start: 3;
-  grid-column-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 3;
 }

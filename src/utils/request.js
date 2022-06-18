@@ -5,18 +5,14 @@ const instance = axios.create({
   timeout: 10000
 })
 
-export const get = (url, params = {}, header = {}) => {
+export const get = (url, params = {}) => {
   return new Promise((resolve, reject) => {
     instance.get(url,
       {
-        params,
-        headers: {
-          "Content-Type": "application/json",
-          ...header
-        },
+        params
       },
     ).then(response => {
-      resolve(response);
+      resolve(response.data);
     }, err => {
       reject(err);
     })
