@@ -4,7 +4,7 @@
 
 后端仓库地址为 👉[wutcst/sept2-2022-view](https://github.com/wutcst/sept2-2022-view)👈。
 
-这里简要介绍游戏前端的部分，**前端**详细内容会**在后端仓库的 `REPORT.md` 文件**介绍。
+这里简要介绍游戏前端的功能，前端详细代码内容会在纸质实验报告中介绍。
 
 前端采用 Vue、Ant-Design-Vue、axios 等进行编写。
 
@@ -50,4 +50,4 @@
 
    <img src="https://raw.githubusercontent.com/tzhiy/image-repo/main/blog/%7D15%40CF7%60RADY22YUC32FRMT.png"/>
 
-前端的细节可见后端仓库的 `REPORT.md` 或实验报告。
+前端的代码细节可见纸质实验报告。
